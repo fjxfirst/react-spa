@@ -28,9 +28,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       use: [{loader: MiniCssExtractPlugin.loader}, {
-        loader:'css-loader',
+        loader: 'css-loader',
         options: {
-          modules: true,
+          modules: false,
           localIdentName: '[local]--[hash:base64:5]'
         }
       }, 'postcss-loader']
@@ -54,7 +54,8 @@ module.exports = {
       actions: path.join(__dirname, '../src/redux/actions'),
       reducers: path.join(__dirname, '../src/redux/reducers'),
       images: path.join(__dirname, '../src/images'),
-    }
+    },
+    extensions: ['.js', '.json', '.jsx']
   },
   // webpack-dev-server
   devServer: {
@@ -75,7 +76,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, '../public/index.html')
+      template: path.join(__dirname, '../public/index.html'),
+      favicon: path.join(__dirname, '../public/React.png')
     }),
     new MiniCssExtractPlugin({ // 压缩css
       filename: "[name].[contenthash].css",
