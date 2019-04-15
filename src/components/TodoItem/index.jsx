@@ -12,6 +12,7 @@ export default class TodoItem extends Component{
     index: PropTypes.number
   }
   deleteItem=()=>{
+    console.log(this.props.index)
     this.props.deleteItem(this.props.index)
   }
   render(){

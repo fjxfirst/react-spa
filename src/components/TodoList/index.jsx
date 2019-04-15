@@ -12,17 +12,10 @@ export default class TodoList extends Component {
     this.props.store.dispatch(changeValue(e.target.value))
   }
   handleBtn = (e) => {
-   /* this.setState((preState) => ({
-      list: [...preState.list, preState.inputValue],
-      inputValue: ''
-    }))*/
+    this.props.store.dispatch(addItem(this.inputDom.value))
   }
   handleDeleteItem = (index) => {
-    /*this.setState((preState) => {
-      const list = preState.list
-      list.splice(index, 1)
-      return {list}
-    })*/
+    this.props.store.dispatch(deleteItem(index))
   }
   componentDidMount(){
     console.log(this.props.store)
@@ -33,23 +26,23 @@ export default class TodoList extends Component {
       <Fragment>
         <div>
           <label htmlFor="input">请输入</label>
-          <input id="input" className="testInput" value={inputValue} type="text" onChange={this.handleInputChange}/>
+          <input id="input" className="testInput" ref={(inputDom)=>{this.inputDom = inputDom}} value={inputValue} type="text" onChange={this.handleInputChange}/>
           <button onClick={this.handleBtn}>提交</button>
         </div>
         <div>
-         {/* <TransitionGroup>
+          <TransitionGroup>
           {
-            store.getState().list.map((item, index) =>
+            list.map((item, index) =>
               <CSSTransition
                 key={index}
                 timeout={1000}
                 classNames='fade'
                 appear={true}
               >
-                <TodoItem  todoItem={item} index={index} deleteItem={this.handleDeleteItem}/>
+                <TodoItem  todoItem={item.toString()} index={index} deleteItem={this.handleDeleteItem}/>
               </CSSTransition>)
           }
-          </TransitionGroup>*/}
+          </TransitionGroup>
         </div>
       </Fragment>
     )
