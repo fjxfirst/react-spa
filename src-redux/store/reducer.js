@@ -4,6 +4,7 @@ const defaultState = {
   list:[]
 }
 export default (state = defaultState, action) => {
+  console.log(action)
   switch (action.type){
     case CHANGE_VALUE: return {...state,inputValue:action.value}
     case ADD_ITEM: return {inputValue:'',list:[...state.list,action.item]}

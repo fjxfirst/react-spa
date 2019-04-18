@@ -8,6 +8,7 @@ export const getTodoList = () => {
   return (dispatch) => {
     setTimeout(() => {
      const list = ['hello', 'java', 'php']
+      console.log(list)
       dispatch(initList(list))
     }, 2000)
   }
