@@ -1,7 +1,7 @@
 {
-  "name": "react-spa",
+  "name": "webpack-react",
   "version": "1.0.0",
-  "description": "",
+  "description": "搭建一个REACT全家桶框架,包含todolist的案例",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
